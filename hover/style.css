@@ -1,5 +1,16 @@
 h1 {color: red;}
 div {background-color: yellow; color: red;}
 h1:hover {background-color: red; color: white;}
-div.dispari:hover {background-color: blue; color: yellow;}
-div.pari:hover {background-color: red; color: yellow;}
+div:nth-child(2n):hover {
+    background-color: red; color: yellow;
+}
+div:nth-child(2n+1):hover {background-color: blue; color: yellow;
+}
+
+/*OPPURE
+div:nth-child(odd):hover {  odd = pari
+    background-color: red; color: yellow;
+}
+div:nth-child(even):hover {background-color: blue; color: yellow; even = dipari
+}
+*/
