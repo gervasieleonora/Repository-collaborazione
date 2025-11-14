@@ -1,0 +1,5 @@
+h1 {color: red;}
+div {background-color: yellow; color: red;}
+h1:hover {background-color: red; color: white;}
+div.dispari:hover {background-color: blue; color: yellow;}
+div.pari:hover {background-color: red; color: yellow;}
