@@ -1,0 +1,16 @@
+h1 {
+    background-color: blue;
+    color: white;
+}
+.pari {
+    background-color: rgb(14, 12, 12);
+    color: rgb(216, 215, 215);
+}
+.dispari {
+    background-color: rgb(216, 215, 215);
+    color: rgb(14, 12, 12);
+}
+.chiusura {
+    color: red;
+    background-color: yellow;
+}
