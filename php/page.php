@@ -10,7 +10,7 @@
     <h1 id="titolo" >Pagina di prova</h1>
     <?php 
     for ($i=1; $i <= 15; $i++) { ?>
-     <div class="ciclo">Questo è il div numero <?echo $i; ?></div>
+     <div class="ciclo">Questo è il div numero <?php echo $i; ?></div>
     <?php
     }
     ?>
