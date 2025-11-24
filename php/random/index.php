@@ -12,9 +12,9 @@
     
     for ($i=0; $i < 19; $i++) :
         if ($i % 2 == 0) 
-            echo "<div class='pari'>questo è un div pari</div>";
-        else
             echo "<div class='dispari'>questo è un div dispari</div>";
+        else
+            echo "<div class='pari'>questo è un div pari</div>";
     endfor;
         ?>
 
