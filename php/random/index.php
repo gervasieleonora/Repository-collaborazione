@@ -10,7 +10,7 @@
     <h1>Css casuali!</h1>
     <?php
     
-    for ($i=0; $i < 19; $i++) :
+    for ($i=1; $i <= 20; $i++) :
         if ($i % 2 == 0) 
             echo "<div class='dispari'>questo è un div dispari</div>";
         else
