@@ -17,6 +17,6 @@
             echo "<div class='pari'>questo è un div pari</div>";
     endfor;
         ?>
-
+<div class="chiusura">Questa è la fine della pagina</div>
 </body>
 </html>
