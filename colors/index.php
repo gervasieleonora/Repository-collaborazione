@@ -10,9 +10,26 @@
     <h1>Colori</h1>
     <?php
     $num_div = rand(5, 30);
-    for($i=1; $i <= $num_div; $i++)
-        echo "<div class='casuale'>div</div>";
+    for($i=1; $i <= $num_div; $i++) {
+        $rand_color = rand(1,4);
+        if($rand_color == 1) {
+            printDiv('',"uno");        
+        } else if ($rand_color == 2) {
+            printDiv('',"due");
+        } else if ($rand_color == 3) {
+            printDiv('',"tre");
+        } else {
+            printDiv('',"quattro");
+        }
+
+    }
     ?>
     <div class="finale">fine pagina</div>
 </body>
 </html>
+
+<?php
+function printDiv($nome = '', $class) {
+    echo "<div class='$class'>$nome</div>";
+}
+?>
