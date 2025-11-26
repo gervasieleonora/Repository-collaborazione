@@ -6,11 +6,12 @@ h1{
     height: 50px;
     width: 50px;
 }
+
 .finale{
     color: white;
     background-color: red;
 }
-.uno {color: red;}
-.due {color:green;}
-.tre {color: blue;}
-.quattro {color:yellow;}
+.uno {background-color: red;height: 50px; width: 50px;}
+.due {background-color:green;height: 50px; width: 50px;}
+.tre {background-color: blue;height: 50px; width: 50px;}
+.quattro {background-color:yellow;height: 50px; width: 50px;}

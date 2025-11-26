@@ -13,13 +13,13 @@
     for($i=1; $i <= $num_div; $i++) {
         $rand_color = rand(1,4);
         if($rand_color == 1) {
-            printDiv('',"uno");        
+            printDiv('n',"uno");        
         } else if ($rand_color == 2) {
-            printDiv('',"due");
+            printDiv('n',"due");
         } else if ($rand_color == 3) {
-            printDiv('',"tre");
+            printDiv('n',"tre");
         } else {
-            printDiv('',"quattro");
+            printDiv('n',"quattro");
         }
 
     }
@@ -29,7 +29,7 @@
 </html>
 
 <?php
-function printDiv($nome = '', $class) {
+function printDiv($nome, $class) {
     echo "<div class='$class'>$nome</div>";
 }
 ?>
