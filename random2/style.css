@@ -1,5 +1,5 @@
 h1 {color: red;}
-div.dispari {background-color: grey; color: white;}
-div.pari {background-color: black; color: white;}
-div.finale {background-color: red; color: white;}
-div {padding: 10px; margin:15px;}
+div.dispari {background-color: grey;}
+div.pari {background-color: black;}
+div.finale {background-color: red;}
+div {padding: 10px; margin:15px; color: white;}
