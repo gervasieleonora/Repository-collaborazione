@@ -11,7 +11,7 @@
     <?php
     $num_div = rand(5, 30);
     for($i=1; $i <= $num_div; $i++)
-        echo "<div class='casuale'>questi div sono casuali</div>";
+        echo "<div class='casuale'>div</div>";
     ?>
     <div class="finale">fine pagina</div>
 </body>
