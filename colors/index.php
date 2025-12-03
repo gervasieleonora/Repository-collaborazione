@@ -11,8 +11,8 @@
     <?php
     $num_div = rand(5, 30);
     for($i=1; $i <= $num_div; $i++) {
-        $rand_color = rand(1,4);
-        if($rand_color == 1) {
+        $rand_color = rand(1,4); 
+        if($rand_color == 1) { /**Oppure si può fare con uno switch */
             printDiv('n',"uno");        
         } else if ($rand_color == 2) {
             printDiv('n',"due");
