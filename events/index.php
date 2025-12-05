@@ -9,11 +9,11 @@
 <body>
     <h1>Eventi JavaScript</h1>
     <button onclick=esercizio01()>rosso</button><br><br>
-    <button onclick=esercizio01()>giallo</button><br><br>
-    <button onclick=esercizio01()>blu</button><br><br>
+    <button onclick=esercizio02()>giallo</button><br><br>
+    <button onclick=esercizio03()>blu</button><br><br>
 <?php 
 for ($i=0; $i<20; $i++) {
-    printDiv("giallo");
+    printDiv("div", "giallo");
 }
 ?>
 <script src="script.js"></script>
@@ -21,7 +21,7 @@ for ($i=0; $i<20; $i++) {
 </html>
 
 <?php 
-function printDiv($classe) {
-    echo "<div class='$classe'>div generato</div>";
+function printDiv($classe1, $classe2) {
+    echo "<div class='$classe1 $classe2'>div generato</div>";
 }
 ?>
