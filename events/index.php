@@ -8,12 +8,13 @@
 </head>
 <body>
     <h1>Eventi JavaScript</h1>
-    <button onclick=esercizio01()>colora</button> <br> <br>
+    <button onclick=esercizio01()>rosso</button><br><br>
+    <button onclick=esercizio01()>giallo</button><br><br>
+    <button onclick=esercizio01()>blu</button><br><br>
 <?php 
 for ($i=0; $i<20; $i++) {
     printDiv("giallo");
 }
-
 ?>
 <script src="script.js"></script>
 </body>
