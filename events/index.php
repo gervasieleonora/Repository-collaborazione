@@ -13,7 +13,7 @@
     <button onclick=esercizio03()>blu</button><br><br>
     <button onclick=esercizio04()>alterna</button><br><br>
 <?php 
-for ($i=0; $i<20; $i++) {
+for ($i=1; $i<=20; $i++) {
     printDiv("div", "giallo");
 }
 ?>

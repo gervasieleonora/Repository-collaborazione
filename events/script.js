@@ -16,3 +16,17 @@ function esercizio03() {
         nuovo[i].style.backgroundColor= "blue";
     }
 } 
+function esercizio04() {
+    let nuovo= document.getElementsByClassName('div');
+    for (let i=1; i<=nuovo.length; i++) {
+        if ( (i%3) == 0 ) {
+            nuovo[i-1].style.backgroundColor= "blue";
+        }  
+        if ( (i%3) == 1) {
+            nuovo[i-1].style.backgroundColor= "red";
+        } 
+        if ( (i%3) == 2) {
+        nuovo[i-1].style.backgroundColor= "yellow";
+        }
+    } 
+}
