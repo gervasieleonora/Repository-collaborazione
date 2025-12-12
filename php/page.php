@@ -1,3 +1,6 @@
+<?php
+require_once ('../lib/library.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +16,7 @@
      <div class="ciclo">Questo è il div numero <?php echo $i; ?></div>
     <?php
     }
+    printDiv("Questo è un div stampato con la funzione","chiusura"," ");
     ?>
-    <div class="chiusura">Questa è la fine della pagina</div>
 </body>
 </html>

@@ -1,3 +1,6 @@
+<?php
+require_once ('../lib/library.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +17,9 @@
     <button onclick=esercizio04()>alterna</button><br><br>
 <?php 
 for ($i=1; $i<=20; $i++) {
-    printDiv("div", "giallo");
+    printDiv("div generati","div", "giallo");
 }
 ?>
 <script src="script.js?ver=1.0.1"></script>
 </body>
 </html>
-
-<?php 
-function printDiv($classe1, $classe2) {
-    echo "<div class='$classe1 $classe2'>div generato</div>";
-}
-?>

@@ -1,3 +1,6 @@
+<?php
+require_once ('../lib/library.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,9 +30,3 @@
     <div class="finale">fine pagina</div>
 </body>
 </html>
-
-<?php
-function printDiv($nome, $class) {
-    echo "<div class='$class'>$nome</div>";
-}
-?>

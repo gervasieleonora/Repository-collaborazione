@@ -1,3 +1,6 @@
+<?php
+require_once ('../lib/library.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +15,9 @@
     $volte= rand(10,30);
     for ($i=1; $i<=$volte; $i++) {
         if ($i % 2 ==0) {
-            echo "<div class='pari'>io sono pari</div>";
+            printDiv('io sono pari','pari');
         } else {
-            echo "<div class='dispari'>io sono dispari</div>";
+            printDiv('io sono dispari','dispari');
         }
     }
     ?>

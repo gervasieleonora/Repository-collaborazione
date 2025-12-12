@@ -1,3 +1,6 @@
+<?php
+require_once ('../../lib/library.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +15,9 @@
     
     for ($i=1; $i <= 20; $i++) :
         if ($i % 2 == 0) 
-            echo "<div class='dispari'>questo è un div dispari</div>";
+            printDiv("questo è un div dispari",'dispari');
         else
-            echo "<div class='pari'>questo è un div pari</div>";
+            printDiv("questo è un div pari",'pari');
     endfor;
         ?>
 <div class="chiusura">Questa è la fine della pagina</div>
