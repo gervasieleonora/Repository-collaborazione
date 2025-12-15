@@ -1,3 +1,10 @@
+function coloraDiv_byClass($class, $colore) {
+    let nuovo = document.getElementsByClassName($class);
+    for (let i=0; i<nuovo.length; i++) {
+        nuovo[i].style.backgroundColor= $colore;
+    }
+}
+
 function esercizio01() {
     let nuovo = document.getElementsByClassName('div');
     for (let i=0; i<nuovo.length; i++) {
@@ -29,4 +36,11 @@ function esercizio04() {
         nuovo[i-1].style.backgroundColor= "yellow";
         }
     } 
+}
+
+function esercizio05() {
+    coloraDiv_byClass('div', 'green');
+}
+function esercizio06() {
+    coloraDiv_byClass('div', 'orange');
 }
