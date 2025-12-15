@@ -6,22 +6,13 @@ function coloraDiv_byClass($class, $colore) {
 }
 
 function esercizio01() {
-    let nuovo = document.getElementsByClassName('div');
-    for (let i=0; i<nuovo.length; i++) {
-        nuovo[i].style.backgroundColor= "red";
-    }
+    coloraDiv_byClass('div', 'red');
 } 
 function esercizio02() {
-    let nuovo = document.getElementsByClassName('div');
-    for (let i=0; i<nuovo.length; i++) {
-        nuovo[i].style.backgroundColor= "yellow";
-    }
+    coloraDiv_byClass('div', 'yellow');
 } 
 function esercizio03() {
-    let nuovo = document.getElementsByClassName('div');
-    for (let i=0; i<nuovo.length; i++) {
-        nuovo[i].style.backgroundColor= "blue";
-    }
+    coloraDiv_byClass('div', 'blue');
 } 
 function esercizio04() {
     let nuovo= document.getElementsByClassName('div');
