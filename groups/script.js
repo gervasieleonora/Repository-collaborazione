@@ -29,3 +29,21 @@ function esercizio05() {
 function esercizio06() {
     coloraDiv_byClass('tutti', 'blue');
 }
+function esercizio07() {
+    coloraDiv_byClass('terzo', 'red');
+}
+function esercizio08() {
+    coloraDiv_byClass('terzo', 'blue');
+}
+function esercizio09() {
+    coloraDiv_byClass('primo', 'yellow');
+}   
+function esercizio10() {
+    coloraDiv_byClass('secondo', 'yellow');
+}   
+function esercizio11() {
+    coloraDiv_byClass('terzo', 'yellow');
+}
+function esercizio12() {
+    coloraDiv_byClass('tutti', 'yellow');
+}
