@@ -29,7 +29,7 @@
 
     //ciclo sulle righe restituite e stampo risultato
     while ($row = mysqli_fetch_assoc($result)) {
-	    echo '<div><h2>' . $row['id'] . '</h2>' . '<p>' . $row['nome'] . $row['cognome'] . '</p></div>';
+	    echo '<div><h2>' . $row['id'] . '</h2>' . '<p>' . $row['nome'] . ' ' . $row['cognome'] . '</p></div>';
     }
 
     ?>
