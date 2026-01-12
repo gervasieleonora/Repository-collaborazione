@@ -28,7 +28,7 @@ $query = 'SELECT value FROM content';
 
 $result = mysqli_query($mysqli, $query);
 
-//ciclo sulle righe restituite e stampo nome e cognome di ogni cliente
+//ciclo sulle righe restituite e stampo risultato
 while ($row = mysqli_fetch_assoc($result)) {
 	echo '<p>' . $row['value'] . '</p>';
 }
