@@ -1,4 +1,4 @@
 h1 {color: red}
 h2 {background-color: red; color:white}
 .grassetto {font-weight: bold}
-div {border-width: 2px; border-color: black}
+div {border-width: 2px; border-color: black; border-style: solid; margin: 5px}
