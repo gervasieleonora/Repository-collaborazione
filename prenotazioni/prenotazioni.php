@@ -34,7 +34,7 @@
 	    echo '<div><h2>Data di arrivo:' .' ' . $row['Arrivo'] . '</h2>' . 
         '<p>Nome: ' . $row['nome'] . '</br>
         Cognome: ' . $row['cognome'] . '</br>' . 'Citta:'. $row['Citta'] . '</br>Importo:' . $row['Importo'] . '</br>Caparra: ' . $row['Caparra'] . '</br> Saldo: </p>
-        <p class="grassetto">' . $row['saldo'] . 
+        <p class="grassetto">' . round($row['saldo']) . 
         '</div>';
     }
 
