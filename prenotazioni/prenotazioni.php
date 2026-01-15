@@ -13,13 +13,13 @@ require_once ('../lib/library.php');
     <h1>Prenotazioni</h1>
     <?php
     //inizializza la connessione al database
-    connect_database('prenotazioni');
+    $dbconnection = connect_database('prenotazioni');
     //esegui una query di esempio
     $query = 'SELECT DISTINCT prenotazioni.arrivo as Arrivo, clienti.nome, clienti.cognome,  citta.citta AS Citta, prenotazioni.importo AS Importo, prenotazioni.caparra AS Caparra, (prenotazioni.importo - prenotazioni.caparra) AS saldo 
     FROM citta INNER JOIN clienti ON citta.id_citta = clienti.citta
     INNER JOIN prenotazioni ON clienti.id_cliente = prenotazioni.cliente';
 
-    $result = mysqli_query($mysqli, $query);
+    $result = mysqli_query($dbconnection, $query);
 
     //ciclo sulle righe restituite e stampo risultato
     while ($row = mysqli_fetch_assoc($result)) {
