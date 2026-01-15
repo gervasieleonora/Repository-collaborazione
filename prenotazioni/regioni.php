@@ -6,7 +6,7 @@ require_once ('../lib/library.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css">
     <title>Regioni</title>
 </head>
 <body>
@@ -17,19 +17,20 @@ require_once ('../lib/library.php');
 
     //esegui una query di esempio
 
-    $query = 'SELECT regioni.regione AS Regione, prenotazioni.id_prenotazione AS Numero_prenotazioni, prenotazioni.importo AS Importo, prenotazioni.caparra AS Caparra, (prenotazioni.importo - prenotazioni.caparra) AS saldo
-    FROM regioni INNER JOIN citta ON regioni.id_regione = citta.regione
-    INNER JOIN clienti ON citta.id_citta = clienti.citta
-    INNER JOIN prenotazioni ON clienti.id_cliente = prenotazioni.cliente';
+    $query = 'SELECT regioni.regione, COUNT(prenotazioni.ID_prenotazione) as numero_prenotazioni, ROUND(SUM(prenotazioni.importo),2) as Importo_delle_prenotazioni, ROUND(SUM(prenotazioni.importo-prenotazioni.caparra),2) as Saldo
+                FROM regioni INNER JOIN citta on regioni.ID_regione = citta.regione
+                INNER JOIN clienti on citta.id_citta = clienti.citta
+                INNER JOIN prenotazioni on clienti.ID_cliente = prenotazioni.cliente
+                GROUP BY regioni.regione';
 
     $result = mysqli_query($dbconnection, $query);
 
     //ciclo sulle righe restituite e stampo risultato
     while ($row = mysqli_fetch_assoc($result)) {
-	    echo '<div><h2>Data di arrivo:' .' ' . $row['Arrivo'] . '</h2>' . 
-        '<p>Nome: ' . $row['nome'] . '</br>
-        Cognome: ' . $row['cognome'] . '</br>' . 'Citta:'. $row['Citta'] . '</br>Importo:' . $row['Importo'] . '</br>Caparra: ' . $row['Caparra'] . '</br> Saldo: </p>
-        <p class="grassetto">' . round($row['saldo']) . 
+	    echo '<div><h2>Regione: ' . $row['regione'] . '</h2>' . 
+        '<p>Numero prenotazioni: ' . $row['numero_prenotazioni'] . '</br>
+        Somma degli importi: ' . $row['Importo_delle_prenotazioni'] . '</br>' . 
+        'Saldo delle prenotazioni:' . '<strong>'.($row['Saldo']) . '</strong>'. 
         '</div>';
     }
 

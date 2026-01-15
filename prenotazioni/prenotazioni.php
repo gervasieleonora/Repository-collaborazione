@@ -6,7 +6,7 @@ require_once ('../lib/library.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
     <title>Prenotazioni</title>
 </head>
 <body>
