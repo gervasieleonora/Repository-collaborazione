@@ -1,3 +1,6 @@
+<?php
+require_once ('../lib/library.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,35 +12,28 @@
 <body>
     <h1>Prenotazioni</h1>
     <?php
+    require_once ('../lib/library.php');
     //inizializza la connessione al database
-    $databaseHost = 'localhost';
-    $databaseName = 'prenotazioni';
-    $databaseUsername = 'root';
-    $databasePassword = '';
+    $db_connection = connect_database('prenotazioni');
 
-    $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
-
-    //verifica la connessione
-    if (!$mysqli) {
-	    die("Connection failed: " . mysqli_connect_error());
+    if ($db_connection === null) {
+        echo 'Errore: connessione al database non riuscita';
+        exit;
     }
 
-
-    $query = 'SELECT DISTINCT regioni.regione AS Regione, regioni.area_geografica AS Area_Geografica, clienti.nome, clienti.cognome
+    $query = 'SELECT DISTINCT regioni.regione AS Regione, regioni.area_geografica AS Area_Geografica, CONCAT(clienti.nome, " ", clienti.cognome) AS Nome, citta.citta
     FROM  regioni INNER JOIN citta ON regioni.id_regione = citta.regione
     INNER JOIN clienti ON citta.id_citta = clienti.citta';
-    $result = mysqli_query($mysqli, $query);
+    $result = mysqli_query($db_connection, $query);
 
 
     //ciclo sulle righe restituite e stampo risultato
     while ($row = mysqli_fetch_assoc($result)) {
-	    echo '<div><h2>' .' ' . $row['Arrivo'] . '</h2>' . 
-        '<p>Nome: ' . $row['nome'] . '</br>
-        Cognome: ' . $row['cognome'] . '</br>' . 'Citta:'. $row['Citta'] . '</br>Importo:' . $row['Importo'] . '</br>Caparra: ' . $row['Caparra'] . '</br> Saldo: </p>
-        <p class="grassetto">' . $row['saldo'] . 
-        '</div>';
+	    echo '<div><h2>'.$row['Nome'] . '</h2>' . 
+        '<p>Regione: ' . $row['Regione'] . '</br>
+        Area geografica: ' . $row['Area_Geografica'] . '</br>
+        Citta: '. $row['citta'] . '</p></div>';
     }
-
     ?>
 </body>
 </html>

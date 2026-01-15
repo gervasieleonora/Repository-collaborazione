@@ -1,3 +1,6 @@
+<?php
+require_once ('../lib/library.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,18 +13,7 @@
     <h1>Prenotazioni</h1>
     <?php
     //inizializza la connessione al database
-    $databaseHost = 'localhost';
-    $databaseName = 'prenotazioni';
-    $databaseUsername = 'root';
-    $databasePassword = '';
-
-    $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
-
-    //verifica la connessione
-    if (!$mysqli) {
-	    die("Connection failed: " . mysqli_connect_error());
-    }
-
+    connect_database('prenotazioni');
     //esegui una query di esempio
     $query = 'SELECT DISTINCT prenotazioni.arrivo as Arrivo, clienti.nome, clienti.cognome,  citta.citta AS Citta, prenotazioni.importo AS Importo, prenotazioni.caparra AS Caparra, (prenotazioni.importo - prenotazioni.caparra) AS saldo 
     FROM citta INNER JOIN clienti ON citta.id_citta = clienti.citta
