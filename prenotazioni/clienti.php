@@ -7,10 +7,10 @@ require_once ('../lib/library.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Prenotazioni</title>
+    <title>Clienti</title>
 </head>
 <body>
-    <h1>Prenotazioni</h1>
+    <h1>Clienti</h1>
     <?php
     require_once ('../lib/library.php');
     //inizializza la connessione al database
