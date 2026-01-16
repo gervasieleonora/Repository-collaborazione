@@ -12,7 +12,7 @@ require_once ('../lib/library.php');
 <body>
     <h1>Clienti</h1>
      <form method="get">
-        <label for="">Seleziona la regione:</label>
+        <label for="regione">Seleziona la regione:</label>
         <select name="regione" id="regione">
             <option value="Abruzzo">Abruzzo</option>
             <option value="Basilicata">Basilicata</option>
@@ -35,6 +35,7 @@ require_once ('../lib/library.php');
         <input type="submit" value="Inserisci">
     </form>
     <?php
+    $regione = $_GET['regione'] ?? '';
     require_once ('../lib/library.php');
     //inizializza la connessione al database
     $db_connection = connect_database('prenotazioni');
@@ -44,13 +45,12 @@ require_once ('../lib/library.php');
         exit;
     }
 
-
-
     $query = 'SELECT DISTINCT regioni.regione AS Regione, regioni.area_geografica AS Area_Geografica, CONCAT(clienti.nome, " ", clienti.cognome) AS Nome, citta.citta
     FROM  regioni INNER JOIN citta ON regioni.id_regione = citta.regione
-    INNER JOIN clienti ON citta.id_citta = clienti.citta';
-    $result = mysqli_query($db_connection, $query);
+    INNER JOIN clienti ON citta.id_citta = clienti.citta
+    WHERE regioni.regione LIKE \'%' . $regione . '%\'';
 
+    $result = mysqli_query($db_connection, $query);
 
     //ciclo sulle righe restituite e stampo risultato
     while ($row = mysqli_fetch_assoc($result)) {
