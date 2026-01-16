@@ -31,7 +31,8 @@ require_once ('../lib/library.php');
                 FROM regioni INNER JOIN citta on regioni.ID_regione = citta.regione
                 INNER JOIN clienti on citta.id_citta = clienti.citta
                 INNER JOIN prenotazioni on clienti.ID_cliente = prenotazioni.cliente
-                WHERE regioni.regione = \'' . $regione . '\'';
+                WHERE regioni.regione LIKE \'' . $regione . '%\'
+                GROUP BY regioni.regione';
         
         $result = mysqli_query($dbconnection, $query);
 
