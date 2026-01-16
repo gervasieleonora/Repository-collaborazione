@@ -32,6 +32,9 @@ require_once ('../lib/library.php');
             <option value="Toscana">Toscana</option>
             <option value="Trentino Alto Adige">Trentino Alto Adige</option>
             <option value="Umbria">Umbria</option>
+            <option value="Valle d'Aosta">Valle d'Aosta</option>
+            <option value="Veneto">Veneto</option>
+            <option value="Lombardia">Lombardia</option>
         </select>
         <input type="submit" value="Inserisci">
     </form>
