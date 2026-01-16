@@ -14,6 +14,7 @@ require_once ('../lib/library.php');
      <form method="get">
         <label for="regione">Seleziona la regione:</label>
         <select name="regione" id="regione">
+            <option value="">Tutte</option>
             <option value="Abruzzo">Abruzzo</option>
             <option value="Basilicata">Basilicata</option>
             <option value="Calabria">Calabria</option>
