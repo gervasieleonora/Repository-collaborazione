@@ -32,14 +32,21 @@ require_once ('../lib/library.php');
             <option value="Toscana">Toscana</option>
             <option value="Trentino Alto Adige">Trentino Alto Adige</option>
             <option value="Umbria">Umbria</option>
-            <option value="Valle d'Aosta">Valle d'Aosta</option>
+            <option value="Valle d Aosta">Valle d'Aosta</option>
             <option value="Veneto">Veneto</option>
             <option value="Lombardia">Lombardia</option>
         </select>
-        <input type="submit" value="Inserisci">
+        <input type="submit" value="Inserisci"> 
     </form>
+        <button class="indietro" id="btnIndietro"><- Indietro</button>
+        <span id="pageInfo">Pagina 1</span>
+        <button class="avanti" id="btnAvanti">Avanti -></button>
+    
     <?php
     $regione = $_GET['regione'] ?? '';
+    $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+    $pagina = $pagina < 1 ? 1 : $pagina;
+    
     require_once ('../lib/library.php');
     //inizializza la connessione al database
     $db_connection = connect_database('prenotazioni');
@@ -49,11 +56,15 @@ require_once ('../lib/library.php');
         exit;
     }
 
+    // Calcola offset in base alla pagina
+    $offset = ($pagina - 1) * 50;
+    
     $query = 'SELECT DISTINCT regioni.regione AS Regione, regioni.area_geografica AS Area_Geografica, CONCAT(clienti.nome, " ", clienti.cognome) AS Nome, citta.citta
     FROM  regioni INNER JOIN citta ON regioni.id_regione = citta.regione
     INNER JOIN clienti ON citta.id_citta = clienti.citta
-    WHERE regioni.regione LIKE \'%' . $regione . '%\'';
-
+    WHERE regioni.regione LIKE \'%' . $regione . '%\'
+    LIMIT ' . $offset . ', 50';
+    
     $result = mysqli_query($db_connection, $query);
 
     //ciclo sulle righe restituite e stampo risultato
@@ -63,6 +74,30 @@ require_once ('../lib/library.php');
         Area geografica: ' . $row['Area_Geografica'] . '</br>
         Citta: '. $row['citta'] . '</p></div>';
     }
+    
+    mysqli_close($db_connection);
     ?>
+    
+    <script>
+        const regione = '<?php echo htmlspecialchars($regione); ?>';
+        const paginaAttuale = <?php echo $pagina; ?>;
+        
+        document.getElementById('pageInfo').textContent = 'Pagina ' + paginaAttuale;
+        
+        document.getElementById('btnIndietro').addEventListener('click', function() {
+            if (paginaAttuale > 1) {
+                window.location.href = 'clienti.php?regione=' + encodeURIComponent(regione) + '&pagina=' + (paginaAttuale - 1);
+            }
+        });
+        
+        document.getElementById('btnAvanti').addEventListener('click', function() {
+            window.location.href = 'clienti.php?regione=' + encodeURIComponent(regione) + '&pagina=' + (paginaAttuale + 1);
+        });
+        
+        // Disabilita il bottone indietro se è la prima pagina
+        if (paginaAttuale === 1) {
+            document.getElementById('btnIndietro').disabled = true;
+        }
+    </script>
 </body>
 </html>
