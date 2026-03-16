@@ -15,21 +15,27 @@ require_once ('../lib/library.php');
     <!-- fare form per inserire la regione -->
     <form method="get">
         <label for="">Cliente:</label>
-        <input type="text" name="cliente" id="cliente">
+        <input type="text" name="cliente" id="cliente" required>
         <label for="">Regione:</label>
-        <input type="text" name="regione" id="regione">
+        <input type="text" name="regione" id="regione" required>
         <input type="submit" value="Cerca">
     </form>
     
+
 
     <?php
     //inizializza la connessione al database
     $dbconnection = connect_database('prenotazioni');
     //esegui una query di esempio
-    $query = 'SELECT DISTINCT prenotazioni.arrivo as Arrivo, clienti.nome, clienti.cognome,  citta.citta AS Citta, prenotazioni.importo AS Importo, prenotazioni.caparra AS Caparra, (prenotazioni.importo - prenotazioni.caparra) AS saldo 
+    $query = 'SELECT DISTINCT clienti.nome as Nome, clienti.cognome as Cognome,
     FROM citta INNER JOIN clienti ON citta.id_citta = clienti.citta
-    INNER JOIN prenotazioni ON clienti.id_cliente = prenotazioni.cliente';
-
+    WHERE clienti.nome LIKE ' . "'%" . ($_GET['cliente'] ?? '') . "%'" . ' AND citta.regione LIKE ' . "'%" . ($_GET['regione'] ?? '') . "%'";
     $result = mysqli_query($dbconnection, $query);
 
-  
+
+ while ($row = mysqli_fetch_assoc($result)) {
+    echo '<div><h2>Cliente: ' . $row['nome'] . ' ' . $row['cognome'] . '</h2> </div>';
+    }
+    ?>
+</body>
+</html>
