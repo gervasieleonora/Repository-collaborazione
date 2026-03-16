@@ -48,18 +48,22 @@ require_once ('../lib/library.php');
 
 
     <?php
+    $cliente = $_GET['cliente'] ?? '';
+    $regione = $_GET['regione'] ?? '';
     //inizializza la connessione al database
     $dbconnection = connect_database('prenotazioni');
     //esegui una query di esempio
-    $query = 'SELECT DISTINCT clienti.nome as Nome, clienti.cognome as Cognome
-    FROM citta INNER JOIN clienti ON citta.id_citta = clienti.citta
-    WHERE clienti.nome LIKE ' . "'%" . ($_GET['cliente'] ?? '') . "%'" . ' AND citta.regione LIKE ' .  ($_GET['regione'] ?? '') . '' ;
+    $query = "SELECT clienti.nome as Nome, clienti.cognome as Cognome
+    FROM regioni INNER JOIN citta ON regioni.ID_regione = citta.regione INNER JOIN clienti ON citta.id_citta = clienti.citta
+    WHERE clienti.nome LIKE '%" . $cliente . "%'" . "AND regioni.regione = '". $regione ."'";
     $result = mysqli_query($dbconnection, $query);
 
 
  while ($row = mysqli_fetch_assoc($result)) {
     echo '<div><h2>Cliente: ' . $row['Nome'] . ' ' . $row['Cognome'] . '</h2> </div>';
     }
+
+    mysqli_close($dbconnection);
     ?>
 </body>
 </html>
