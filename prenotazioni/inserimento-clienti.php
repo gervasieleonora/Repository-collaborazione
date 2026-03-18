@@ -12,7 +12,22 @@ require_once ('../lib/library.php');
 <body>
     <h1>Inserimento clienti</h1>
 
+    <form method="get">
+        <label for="">Nome</label>
+        <input type="text" name="Nome" id="Nome">
 
+        <label for="">Cognome</label>
+        <input type="text" name="Cognome" id="Cognome">
+
+        <label for="">Città</label>
+        <input type="text" name="Citta" id="Citta">
+
+        <input type="submit" value="Annulla">
+        <input type="submit" value="Salva">
+
+    </form>
+
+    
 
  
 </body>
