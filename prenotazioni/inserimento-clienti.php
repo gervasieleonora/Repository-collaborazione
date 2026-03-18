@@ -14,34 +14,38 @@ require_once ('../lib/library.php');
 
     <form method="get">
         <label for="">Nome</label>
-        <input type="text" name="Nome" id="Nome">
+        <input type="text" name="Nome" id="Nome" required>
 
         <label for="">Cognome</label>
-        <input type="text" name="Cognome" id="Cognome">
+        <input type="text" name="Cognome" id="Cognome" required>
 
         <label for="">Città</label>
-        <input type="text" name="Citta" id="Citta">
+        <input type="text" name="Citta" id="Citta" required>
 
-        <input type="submit" value="Annulla">
-        <input type="submit" value="Salva">
+        <input type="submit" name="Annulla" value="Annulla">
+        <input type="submit" name="Salva" value="Salva">
 
     </form>
 
     <?php
-    $nome = $_GET['Nome'] ?? '';
-    $cognome = $_GET['Cognome'] ?? '';
-    $citta = $_GET['Citta'] ?? '';
+    if (isset($_GET['Annulla'])) {
+        $nome = "";
+        $cognome = "";
+        $citta = "";
+    } else if (isset($_GET['Salva'])){
+        // Altrimenti, elabora i dati (es. pulisci gli spazi bianchi)
+        $nome = trim($_GET['Nome'] ?? '');
+        $cognome = trim($_GET['Cognome'] ?? '');
+        $citta = trim($_GET['Citta'] ?? '');
+        //inizializza la connessione al database
+        $dbconnection = connect_database('prenotazioni');
+    
+        //esegui una query di esempio
+        $query = "INSERT INTO clienti (nome, cognome, citta) VALUES ('" . $nome . "', '" . $cognome . "', '" . $citta . "')";
+        $result = mysqli_query($dbconnection, $query);
+        echo '<h2>Inserimento completato</h2>';
+    }
 
-    //inizializza la connessione al database
-    $dbconnection = connect_database('prenotazioni');
-
-    //esegui una query di esempio
-    $query = "INSERT INTO clienti (nome, cognome, citta) VALUES ('" . $nome . "', '" . $cognome . "', '" . $citta . "')";
-    $result = mysqli_query($dbconnection, $query);
-
-
- 
-    echo '<h2>Inserimento completato</h2>';
 
     mysqli_close($dbconnection);
     ?>
