@@ -27,8 +27,23 @@ require_once ('../lib/library.php');
 
     </form>
 
-    
+    <?php
+    $nome = $_GET['Nome'] ?? '';
+    $cognome = $_GET['Cognome'] ?? '';
+    $citta = $_GET['Citta'] ?? '';
+
+    //inizializza la connessione al database
+    $dbconnection = connect_database('prenotazioni');
+
+    //esegui una query di esempio
+    $query = "INSERT INTO clienti (nome, cognome, citta) VALUES ('" . $nome . "', '" . $cognome . "', '" . $citta . "')";
+    $result = mysqli_query($dbconnection, $query);
+
 
  
+    echo '<h2>Inserimento completato</h2>';
+
+    mysqli_close($dbconnection);
+    ?>
 </body>
 </html>
